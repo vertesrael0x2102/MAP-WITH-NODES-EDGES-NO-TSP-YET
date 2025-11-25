@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meter Pole & Road Network Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    
+    <style>
+        /* Define the map container size */
+        #map { height: 100vh; width: 100%; }
+        /* Make sure the body and html take up the full screen */
+        body, html { margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script>
+        // --- 1. CONFIGURATION ---
+        
+        // Define a color map for the 10 pole blocks
+        const POLE_COLOR_MAP = {
+            '1': '#e6194b', // Red
+            '2': '#f58231', // Orange
+            '3': '#452829', // Brown
+            '4': '#3cb44b', // Green
+            '5': '#4363d8', // Blue
+            '6': '#911eb4', // Purple
+            '7': '#00A8CC', // Cyan
+            '8': '#f032e6', // Magenta
+            '9': '#628141', // Lime Green
+            '10': '#364F6B', // Black
+            // Default color for blocks not listed
+            'default': '#000000' 
+        };
+        
+        const CENTER_LAT = 8.2335;
+        const CENTER_LON = 124.239;
+        const INITIAL_ZOOM = 16;
+        
+        // --- 2. MAP INITIALIZATION ---
+        
+        const map = L.map('map').setView([CENTER_LAT, CENTER_LON], INITIAL_ZOOM);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors | Data Processed by User'
+        }).addTo(map);
+
+        // --- 3. LAYER LOADING FUNCTION ---
+        
+        async function loadGeoJsonLayer(url, name, styleOptions, pointToLayerFunc) {
+            try {
+                const response = await fetch(url); 
+                if (!response.ok) {
+                    throw new Error(`File not found or network error. Status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                const geoJsonLayer = L.geoJson(data, {
+                    style: styleOptions,
+                    pointToLayer: pointToLayerFunc,
+                    onEachFeature: (feature, layer) => {
+                        // Add a popup for poles with their ID and Block
+                        if (name === "Meter Poles" && feature.properties.POLE_ID) {
+                            layer.bindPopup(`<b>Pole ID:</b> ${feature.properties.POLE_ID}<br><b>Block:</b> ${feature.properties.BLOCK}<br>Node: ${feature.properties.nearest_node_id}`);
+                        }
+                    }
+                }).addTo(map);
+
+                L.control.layers(null, { [name]: geoJsonLayer }, { collapsed: false }).addTo(map);
+                
+                if (map.getBounds().isValid() === false) {
+                     map.fitBounds(geoJsonLayer.getBounds());
+                }
+
+            } catch (error) {
+                console.error(`--- CRITICAL GEOJSON LOAD ERROR for ${name} ---`);
+                console.error(`Check file path: ${url}. Error:`, error);
+                alert(`Error loading ${name}. The file path is likely wrong. Check the browser console (F12) for details.`);
+            }
+        }
+
+        // --- 4. LAYER DEFINITIONS AND LOADING ---
+        
+        // 1. Road Network Edges (Lines)
+        loadGeoJsonLayer(
+            'OUTPUT_GEOJSON/road_network_edges.geojson', 
+            'Road Network (Edges)', 
+            { color: '#888888', weight: 2, opacity: 0.7 }
+        );
+
+        // 2. Road Network Nodes (Intersections)
+        loadGeoJsonLayer(
+            'OUTPUT_GEOJSON/road_network_nodes.geojson', 
+            'Road Nodes (Intersections)',
+            null, // Style is defined in pointToLayer
+            (feature, latlng) => {
+                return L.circleMarker(latlng, {
+                    radius: 3,
+                    fillColor: "#000000",
+                    color: "#000000",
+                    weight: 1,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                });
+            }
+        );
+
+        // 3. Snapped Meter Poles (Points) - NOW WITH COLOR CODING
+        loadGeoJsonLayer(
+            'OUTPUT_GEOJSON/meter_poles_snapped.geojson', 
+            'Meter Poles',
+            null, // Style is defined in pointToLayer
+            (feature, latlng) => {
+                // Get the block number as a string
+                const block = String(feature.properties.BLOCK);
+                // Look up the color, default to black if block is missing
+                const color = POLE_COLOR_MAP[block] || POLE_COLOR_MAP.default;
+
+                return L.circleMarker(latlng, {
+                    radius: 5,
+                    fillColor: color, // Set the block-specific color
+                    color: color,     // Use the same color for the border
+                    weight: 1.5,
+                    opacity: 1,
+                    fillOpacity: 0.9
+                });
+            }
+        );
+
+    </script>
+</body>
+</html>
