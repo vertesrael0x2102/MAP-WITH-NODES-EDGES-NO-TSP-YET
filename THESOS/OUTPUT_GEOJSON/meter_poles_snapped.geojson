@@ -215,6 +215,25 @@
 { "type": "Feature", "properties": { "POLE_ID": "10-15i", "BLOCK": 10, "NUMBER": "15i", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.243294957694886, 8.234628392947839 ] } },
 { "type": "Feature", "properties": { "POLE_ID": "10-16i", "BLOCK": 10, "NUMBER": "16i", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.243924230989165, 8.234563658975269 ] } },
 { "type": "Feature", "properties": { "POLE_ID": "10-17i", "BLOCK": 10, "NUMBER": "17i", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.243773115180119, 8.234532408088198 ] } },
-{ "type": "Feature", "properties": { "POLE_ID": "10-18i", "BLOCK": 10, "NUMBER": "18i", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.243518248218663, 8.234467674099941 ] } }
+{ "type": "Feature", "properties": { "POLE_ID": "10-18i", "BLOCK": 10, "NUMBER": "18i", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.243518248218663, 8.234467674099941 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-1j", "BLOCK": 11, "NUMBER": "1j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234721551094481, 8.231292181179004 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-2j", "BLOCK": 11, "NUMBER": "2j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234801293632927, 8.231440552735968 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-3j", "BLOCK": 11, "NUMBER": "3j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234973537534955, 8.231841471350736 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-4j", "BLOCK": 11, "NUMBER": "4j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.235110694716198, 8.232166625519778 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-5j", "BLOCK": 11, "NUMBER": "5j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.235209575474798, 8.23227711473975 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-6j", "BLOCK": 11, "NUMBER": "6j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.23535311205984, 8.232608582214723 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-7j", "BLOCK": 11, "NUMBER": "7j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.235432900094324, 8.232861750162598 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-8j", "BLOCK": 11, "NUMBER": "8j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.235404192777324, 8.232803348807819 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-9j", "BLOCK": 11, "NUMBER": "9j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.235316475975367, 8.232924886752672 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-10j", "BLOCK": 11, "NUMBER": "10j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234984746978839, 8.233117453290243 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-11j", "BLOCK": 11, "NUMBER": "11j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234938496301424, 8.233205844456451 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-12j", "BLOCK": 11, "NUMBER": "12j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234605172453954, 8.232991180161431 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-13j", "BLOCK": 11, "NUMBER": "13j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234338832314876, 8.232789143069487 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-14j", "BLOCK": 11, "NUMBER": "14j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234074087044959, 8.232020454127861 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-15j", "BLOCK": 11, "NUMBER": "15j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.233750332295514, 8.231646368819327 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-16j", "BLOCK": 11, "NUMBER": "16j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.233461664274486, 8.231778956053763 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-17j", "BLOCK": 11, "NUMBER": "17j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234067707626963, 8.231486948390588 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-18j", "BLOCK": 11, "NUMBER": "18j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234194905398965, 8.231445715354518 ] } },
+{ "type": "Feature", "properties": { "POLE_ID": "11-19j", "BLOCK": 11, "NUMBER": "19j", "nearest_node_id": 1553761515 }, "geometry": { "type": "Point", "coordinates": [ 124.234363703519037, 8.231374386729328 ] } }
 ]
 }

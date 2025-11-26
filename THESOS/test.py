@@ -22,7 +22,7 @@ if not os.path.isdir(BASE_DIRECTORY):
     print(f"Current Working Directory (CWD): {os.getcwd()}")
     sys.exit()
 
-file_numbers = range(1, 11) 
+file_numbers = range(1, 12) 
 expected_files = [f"poleblock{i}.csv" for i in file_numbers]
 data_frames = []
 files_found = 0
